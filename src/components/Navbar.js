@@ -39,7 +39,7 @@ function App() {
   const closeMenu = () => {
     setShowMenu(false);
   };
-
+  console.log("test");
   return (
     <div className="App">
       <nav className="navbar">
