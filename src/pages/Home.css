@@ -45,6 +45,10 @@ body{
   display: none;
 }
 
+.close-btn{
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
 
   .logo-alignment{
@@ -99,49 +103,11 @@ body{
     margin-left: 250px; 
   }
 
-
-
-
-
-
+  .close-btn{
+    display: block;
+  }
 
 }
-
-
-
-
-/* .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  padding: 10px 20px;
-}
-.navbar-brand {
-  display: flex;
-  align-items: center;
-}
-.navbar-menu {
-  list-style: none;
-  display: flex;
-  align-items: center;
-  padding: 0;
-}
-.navbar-item {
-  padding: 0 10px;
-}
-
-.navbar-link {
-  color: black;
-  text-decoration: none;
-  font-size: 1.2rem; 
-}
-
-.container-navbar{
-  width: 100%;
-  margin: 0 auto;
-}
- */
 
   /* BANNER CSS */
 
@@ -252,16 +218,6 @@ body{
       margin-bottom: 20px;
     }
   }
-  
-  /* @media screen and (max-width: 1024px) {
-    .navbar-link {
-      font-size: 1rem;
-    }
-    .navbar-logo {
-        max-width: 70%;
-        height: auto;
-      }
-  } */
 
   @media screen and (max-width: 929px) {
     .product-card {
@@ -270,9 +226,7 @@ body{
   }
   
   @media screen and (max-width: 768px) {
-    /* .navbar-link {
-      font-size: 0.8rem;
-    } */
+  
     .products-text {
        font-size: 0.8rem;
        margin: 10px;
