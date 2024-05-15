@@ -15,6 +15,7 @@ const ProductsDescription = () => {
      the industry's standard dummy text ever since the 1500s <br/> When an unknown printer took a galley of type and scrambled it to make a type specimen book.
      </p>
     <p>Price: Rs. 1500</p>
+    <button className='button-alignment'>ADD TO CART</button>
   </div>
 </div>
 </div>
