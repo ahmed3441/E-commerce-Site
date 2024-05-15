@@ -1,9 +1,12 @@
-
 import React, { useState } from 'react';
 import logo from '../assests/images/logo.jpeg';
+import { useSelector } from 'react-redux';
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
+
+   const cart = useSelector((state) => state.cart.cart.length);
+   console.log("CART DATA",cart);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -11,7 +14,7 @@ function App() {
   const closeMenu = () => {
     setShowMenu(false);
   };
-
+                                                                                                                                                                     
   return (
     <div className="App">
       <nav className="navbar">
@@ -29,8 +32,11 @@ function App() {
           <li><a href="/products">Products</a></li>
           <li><a href="/">Services</a></li>
           <li><a href="/">Contact</a></li>
+          <button className='cart-button'>CART({cart})</button>
           <li className="close-btn" onClick={closeMenu}>Close</li>
         </ul>
+
+       
   
        
       </nav>
