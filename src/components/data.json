@@ -1,0 +1,37 @@
+[
+  {
+      "id": 1,
+      "image": "https://res.cloudinary.com/dvjc58gfz/image/upload/v1715839604/yrdqhcrs3izslbb3jsit.jpg",
+      "title": "I-Phone Back Covers",
+      "description": "Description of the product goes here...",
+      "price": "1500"
+    },
+    {
+    "id": 2,
+    "image": "https://res.cloudinary.com/dvjc58gfz/image/upload/v1715839604/hjvuyac1xml2fnlegxmc.jpg",
+    "title": "I-Phone 13 Pro Max",
+    "description": "Description of the product goes here...",
+    "price": "300000"
+  },
+  {
+    "id": 3,
+    "image":"https://res.cloudinary.com/dvjc58gfz/image/upload/v1715839604/h658ad8ekllmq0e6grw0.jpg",
+    "title": "Air Pods Pro (Anc)",
+    "description": "Description of the product goes here...",
+    "price": "3000"
+  },
+  {
+    "id": 4,
+    "image":"https://res.cloudinary.com/dvjc58gfz/image/upload/v1715839604/zpcvwlicv5tkz0rt9ljc.jpg",
+    "title": "Ladies Hand Bags",
+    "description": "Description of the product goes here...",
+    "price": "4000"
+  },
+  {
+    "id": 5,
+    "image":"https://res.cloudinary.com/dvjc58gfz/image/upload/v1715839605/hf5qwn11okp0aaddov2c.jpg",
+      "title": "Men's T-Shirts",
+      "description": "Description of the product goes here...",
+      "price": "1000"
+  }
+]

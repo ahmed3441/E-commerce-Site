@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../assests/images/logo.jpeg';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
@@ -28,23 +29,19 @@ function App() {
         
         <ul className={`navbar-menu ${showMenu ? 'show' : ''}`}>
        
-          <li><a href="/">Home</a></li>
-          <li><a href="/products">Products</a></li>
-          <li><a href="/">Services</a></li>
-          <li><a href="/">Contact</a></li>
+        <li><Link to='/'>Home</Link></li>
+      <li><Link to='/products'>Products</Link></li>
+      <li><Link to='/'>Services</Link></li>
+      <li><Link to='/'>Contact</Link></li>
           <button className='cart-button'>CART({cart})</button>
           <li className="close-btn" onClick={closeMenu}>Close</li>
-        </ul>
-
-       
-  
-       
+        </ul>  
+        
       </nav>
       <div className="content">
-        {/* Your content here */}
+      
       </div>
     </div>
   );
 }
-
 export default App;

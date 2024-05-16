@@ -178,7 +178,7 @@ import Bags from '../assests/images/bags.jpg';
 import Shirt from '../assests/images/shirts.jpg';
 
 const Filters = () => {
-
+  
   const products = [
     { image: Accessories, title: 'Mobile Back Covers', description: 'Description of the product goes here...', price: '$150' },
     { image: Mobile, title: 'I-Phone 15 Pro Max', description: 'Description of the product goes here...', price: '$1200' },
