@@ -178,7 +178,7 @@ import Bags from '../assests/images/bags.jpg';
 import Shirt from '../assests/images/shirts.jpg';
 
 const Filters = () => {
-  
+
   const products = [
     { image: Accessories, title: 'Mobile Back Covers', description: 'Description of the product goes here...', price: '$150' },
     { image: Mobile, title: 'I-Phone 15 Pro Max', description: 'Description of the product goes here...', price: '$1200' },
@@ -198,10 +198,10 @@ const Filters = () => {
     <div>
       <div className="container-products">
         <div className="sidebar">
-          <h3>Search Bar</h3>
+          <h3 className='font-search'>Search Bar</h3>
           <input type="text" placeholder="Search..." className="search-input" />
           <div className="filter-section">
-            <h3>Category</h3>
+            <h3 className='font-search'>Category</h3>
             <select>
               <option value="all">All</option>
               <option value="clothing">Clothing</option>
@@ -210,7 +210,7 @@ const Filters = () => {
             </select>
           </div>
           <div className="filter-section">
-            <h3>Price Range</h3>
+            <h3 className='font-search'>Price Range</h3>
             <select>
               <option value="all">All</option>
               <option value="0-50">$0 - $50</option>
@@ -219,7 +219,7 @@ const Filters = () => {
             </select>
           </div>
         </div>
-
+        
         <div className="grid-container">
        
           {products.map((product, index) => (

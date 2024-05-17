@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function App() {
   const [showMenu, setShowMenu] = useState(false);
 
-   const cart = useSelector((state) => state.cart.cart.length);
+   const cart = useSelector((state) => state);
    console.log("CART DATA",cart);
 
   const toggleMenu = () => {
@@ -33,7 +33,7 @@ function App() {
       <li><Link to='/products'>Products</Link></li>
       <li><Link to='/'>Services</Link></li>
       <li><Link to='/'>Contact</Link></li>
-          <button className='cart-button'>CART({cart})</button>
+          <button className='cart-button'>CART({cart.cart.cart.length})</button>
           <li className="close-btn" onClick={closeMenu}>Close</li>
         </ul>  
         

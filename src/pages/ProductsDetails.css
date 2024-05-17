@@ -37,7 +37,6 @@
   .sidebar {
     width: 220px;
     background-color: #f1f1f1;
-    /* padding: 20px; */
   }
   
   .search-input {
@@ -84,6 +83,23 @@
     border-color: red;
   }
 
+  @media screen and (max-width: 1440px) {
+    .search-input {
+      width: 100%;
+      height: 0px;
+      margin-bottom: 10px;
+    }
+    .font-search{
+      font-size: 14px;
+    }
+    .select-font{
+      font-size: 14px;
+    }
+    .filter-section select {
+      width: 100%;
+    }
+  }
+
   @media screen and (max-width: 992px) {
     .grid-container {
       grid-template-columns: repeat(3, 1fr);
@@ -94,9 +110,9 @@
     .container-products {
       flex-direction: column;
     }
-
      .search-input {
-      width: 95%;
+      width: 96%;
+      height: auto;
       display: flex;
       justify-content: center;
     }

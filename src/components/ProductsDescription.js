@@ -93,6 +93,7 @@ const ProductDetails = () => {
   }, [searchParams]);
 
   const handleAddToCart = (product) => {
+    console.log("product:::",product);
     dispatch(addItemToCart(product));
     console.log("Item added to cart:", product);
   };
