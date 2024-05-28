@@ -219,7 +219,7 @@ const Filters = () => {
             </select>
           </div>
         </div>
-        
+
         <div className="grid-container">
        
           {products.map((product, index) => (
