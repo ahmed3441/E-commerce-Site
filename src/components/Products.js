@@ -109,7 +109,7 @@ const Products = () => {
 
         {productsData.map((product, index) => {
           console.log("PRODUCT",product)
-          
+                    
          return (
           <div className="product-card" key={index}>
             <Link to={`/products?productId=${product.id}`} className='product-link'>
