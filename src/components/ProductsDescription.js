@@ -92,12 +92,25 @@ const ProductDetails = () => {
     }
   }, [searchParams]);
 
-  const handleAddToCart = (product) => {
-    console.log("product:::",product);
-    dispatch(addItemToCart(product));
-    console.log("Item added to cart:", product);
-  };
+  // const handleAddToCart = (product) => {
+  //   console.log("product:::",product);
+  //   dispatch(addItemToCart(product));
+  //   console.log("Item added to cart:", product);
+  // };
 
+
+  const handleAddToCart = (product) => {
+    const users = localStorage.getItem('users');
+  
+    if (!users) {
+      alert('Please Login First If You Want Items Add to Cart');
+    } else {
+      console.log("product:::", product);
+      dispatch(addItemToCart(product));
+      console.log("Item added to cart:", product);
+    }
+  };
+  
   return (
     <div> 
       {product ? (

@@ -113,11 +113,12 @@ const Products = () => {
          return (
           <div className="product-card" key={index}>
             <Link to={`/products?productId=${product.id}`} className='product-link'>
-            {/* <Link to={{ pathname: `/products/${product.id}`, state: { product } }}  className='product-link'>   */}
               <img src={product.image} alt={`Product ${index + 1}`} className="product-image"/>
+              <div>
               <h3 className="product-title">{product.title}</h3>
               <p>{product.description}</p>
               <p className="product-description">Price: {product.price}</p>
+              </div>
             </Link>
           </div>
         )})}

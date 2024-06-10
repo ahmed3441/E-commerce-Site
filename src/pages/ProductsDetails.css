@@ -1,3 +1,11 @@
+body{
+  background-color: white;
+}
+
+.person-img-size{
+  height: 30px;
+}
+
 /* PRODUCT DESCRIPTION */
 
 .products-card {
@@ -14,7 +22,7 @@
   
   .product-image {
     flex: 0 0 30%; 
-    padding: 10px;
+    /* padding: 10px; */
   }
   
   .product-image img {
@@ -60,6 +68,11 @@
 
   /* PRODUCTS VARIETY */
 
+  .card{
+      background-color: #F1F3F6 !important;
+      padding: 10px !important;
+  }
+
   .container-products {
     display: flex;
   }
@@ -71,10 +84,10 @@
   
   .grid-container {
     flex-grow: 1;
-    padding: 20px;
+    padding: 30px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 40px;
   }
 
   .button-alignment{
