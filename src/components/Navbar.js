@@ -39,8 +39,6 @@ function App() {
     const storedUser = JSON.parse(localStorage.getItem('users'));
       console.log("LOGIN USER", storedUser);
 
-
-
   return (
     <div className="App">
       <nav className="navbar">
@@ -57,13 +55,36 @@ function App() {
         <li><Link to='/'>Home</Link></li>
       <li><Link to='/products'>Products</Link></li>
       <li><Link to='/'>Services</Link></li>
-      <li><Link to='/signin'>Sign-In</Link></li>
+
+
+      {storedUser ? (
+  <>
+    <li>
+      <span className='cart-button' onClick={handleCartClick}>
+        CART({cart.cart.cart.length})
+      </span>
+    </li>
+    <li>
+      <span onClick={() => {
+        navigate('/');
+        localStorage.removeItem('users');
+        dispatch(clearCart());
+        setDropdownVisible(!dropdownVisible);
+      }}>
+        Logout
+      </span>
+    </li>
+    <li><span>Add User</span></li>
+  </>
+) : (
+  <li><Link to='/signin'>Sign-In</Link></li>
+)}
+
 
       <div className="dropdown">
       <img src={PersonImage} className="person-img-size" alt="Profile"  onClick={dropdownToggle} />
-      {dropdownVisible && (
+      {/* {dropdownVisible && (
         <div className="dropdown-menu">
-          {/* <NavLink to="/home">Profile Settings</NavLink> <br /> */}
           <button className='cart-button' onClick={handleCartClick} >CART({cart.cart.cart.length})</button> <br/>
           <button onClick={()=>{
             navigate('/');
@@ -72,9 +93,10 @@ function App() {
             setDropdownVisible(!dropdownVisible);
           }}>Logout</button>
         </div>
-      )}
+      )
+      } */}
     </div>
-    <span>Welcome, {storedUser?.[0]?.name || ""}  !</span>
+    <span>&nbsp; &nbsp;{storedUser?.[0]?.name || ""} </span>
           {/* <button className='cart-button'>CART({cart.cart.cart.length})</button> */}
           <li className="close-btn" onClick={closeMenu}>Close</li>
         </ul>  

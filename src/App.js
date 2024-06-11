@@ -1,25 +1,54 @@
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import Home from './pages/Home';
+// import ProductsDetails from './pages/ProductsDetails';
+// import Signup from './pages/Signup';
+// import Signin from './pages/Signin';
+// // import CartPage from './pages/CartPage';
+// import PrivateRoute from './components/Auth';
+
+// function App() {
+
+//   return (
+//     <div>
+//       <Router>
+//         <Routes>
+//           <Route exact path="/signin" element={<Signin />} />
+//           <Route exact path="/signup" element={<Signup />} />
+//           <Route exact path="/" element={<Home />} />
+//           <Route exact path="/products" element={<ProductsDetails/>} />
+//            <Route exact path="/cartitems" element= {<PrivateRoute isAuth={false} /> }/> 
+//           </Routes>
+//       </Router>
+//     </div>
+//   );
+// }
+
+// export default App;
+
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import ProductsDetails from './pages/ProductsDetails';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import CartPage from './pages/CartPage';
+import PrivateRoute from './components/Auth';
 
 function App() {
   return (
     <div>
       <Router>
         <Routes>
-          <Route exact path="/signin" element={<Signin />} />
-          <Route exact path="/signup" element={<Signup />} />
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/products" element={<ProductsDetails/>} />
-          <Route exact path="/cartitems" element={<CartPage/>} />
-          </Routes>
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<ProductsDetails />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/cartitems" element={<CartPage />} />
+          </Route>
+        </Routes>
       </Router>
     </div>
   );
 }
 
 export default App;
-

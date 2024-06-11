@@ -166,154 +166,126 @@
 
 // export default Filters
 
+
+
+
+
+
+
 import React, { useEffect, useState } from "react";
 import Accessories from "../assests/images/accessories.jpg";
 import Mobile from "../assests/images/mobile.jpg";
 import Airpods from "../assests/images/airpods.jpg";
 import Bags from "../assests/images/bags.jpg";
 import Shirt from "../assests/images/shirts.jpg";
+import { useDispatch } from "react-redux";
+import { addItemToCart } from '../features/CartSlice';
 
 const Filters = () => {
   const [searchValue, setSearchValue] = useState("");
-  console.log("Serch BAr", searchValue);
-
   const [category, setCategory] = useState("all");
-
-  // const [price, setPrices] = useState ('all');
+  const [priceRange, setPriceRange] = useState("all");
 
   const products = [
     {
+      id: 6,
       image: Accessories,
       title: "Mobile Back Covers",
       description: "Description of the product goes here...",
       category: "accessories",
-      price: "$150",
+      price: 150,
     },
     {
+      id: 7,
       image: Mobile,
       title: "I-Phone 15 Pro Max",
       description: "Description of the product goes here...",
       category: "mobiles",
-      price: "$1200",
+      price: 1200,
     },
     {
+      id: 8,
       image: Airpods,
       title: "Airpods Pro",
       description: "Description of the product goes here...",
       category: "accessories",
-      price: "$20",
+      price: 20,
     },
     {
+      id: 9,
       image: Bags,
       title: "Ladies Hand Bags",
       description: "Description of the product goes here...",
       category: "bags",
-      price: "$50",
+      price: 50,
     },
     {
+      id: 10,
       image: Shirt,
       title: "Men's T-Shirts",
       description: "Description of the product goes here...",
       category: "clothing",
-      price: "$12",
+      price: 12,
     },
     {
+      id: 11,
       image: Accessories,
       title: "Mobile Back Covers",
       description: "Description of the product goes here...",
       category: "accessories",
-      price: "$150",
+      price: 150,
     },
     {
+      id: 12,
       image: Mobile,
       title: "I-Phone 15 Pro Max",
       description: "Description of the product goes here...",
       category: "mobiles",
-      price: "$1200",
+      price: 1200,
     },
     {
+      id: 13,
       image: Airpods,
       title: "Airpods Pro",
       description: "Description of the product goes here...",
       category: "accessories",
-      price: "$20",
+      price: 20,
     },
     {
+      id: 14,
       image: Bags,
       title: "Ladies Hand Bags",
       description: "Description of the product goes here...",
       category: "bags",
-      price: "$50",
+      price: 50,
     },
     {
+      id: 15,
       image: Shirt,
       title: "Men's T-Shirts",
       description: "Description of the product goes here...",
       category: "clothing",
-      price: "$12",
+      price: 12,
     },
     {
+      id: 16,
       image: Accessories,
       title: "Mobile Back Covers",
       description: "Description of the product goes here...",
       category: "accessories",
-      price: "$150",
+      price: 150,
     },
     {
+      id: 17,
       image: Mobile,
       title: "I-Phone 15 Pro Max",
       description: "Description of the product goes here...",
       category: "mobiles",
-      price: "$1200",
+      price: 1200,
     },
   ];
-
-  const [filteredArray, setFilteredArray] = useState();
-
-  let FilterData = [];
-  console.log("FilterData::::::", FilterData);
-
-  // const priceRangeHandler = () => {
-  //   // Filter products based on the price range
-  //   FilterData = products.filter((item) => {
-  //     // Convert the price to a number by removing the "$" sign and converting to integer
-  //     const price = parseInt(item.price.replace("$", ""), 10);
-  //     // Check if the price is less than or equal to 250
-  //     return price <= 250;
-  //   });
-  // };
-  const priceRangeHandler = (range) => {
-    let minPrice = 0;
-    let maxPrice = Infinity;
-
-    // Determine minPrice and maxPrice based on the selected range
-    switch (range) {
-      case "0-100":
-        maxPrice = 100;
-        break;
-      case "101-200":
-        minPrice = 101;
-        maxPrice = 200;
-        break;
-      case "1000-1500":
-        minPrice = 1000;
-        maxPrice = 1500;
-        break;
-      default:
-        break;
-    }
-
-    const filteredProducts = products.filter((product) => {
-      const price = parseInt(product.price.replace("$", ""), 10);
-      return price >= minPrice && price <= maxPrice;
-    });
-
-    // Update the filterArray state with the filtered products
-    setFilteredArray(filteredProducts);
-  };
-
-  const [filterArray, setFilterArray] = useState(products);
-  console.log("Filters Category", filterArray);
+  
+  const [filteredArray, setFilteredArray] = useState(products);
 
   useEffect(() => {
     const results = products.filter((product) => {
@@ -322,11 +294,35 @@ const Filters = () => {
         .includes(searchValue.toLowerCase());
       const matchesCategory =
         category === "all" || product?.category === category;
+      const matchesPrice =
+        priceRange === "all" ||
+        (product.price >= priceRange.split("-")[0] &&
+          product.price <= priceRange.split("-")[1]);
 
-      return matchesSearch && matchesCategory;
+      return matchesSearch && matchesCategory && matchesPrice;
     });
-    setFilterArray(results);
-  }, [searchValue, category]);
+    setFilteredArray(results);
+  }, [searchValue, category, priceRange]);
+
+const dispatch = useDispatch();
+  const handleAddToCart = (product) => {
+    const users = localStorage.getItem('users');
+  
+    if (!users) {
+      alert('Please Login First If You Want Items Add to Cart');
+    } else {
+      console.log("product:::", product);
+      dispatch(addItemToCart(product));
+      console.log("Item added to cart:", product);
+    }
+  };
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -355,7 +351,7 @@ const Filters = () => {
           </div>
           <div className="filter-section">
             <h3 className="font-search">Price Range</h3>
-            <select onChange={(e) => priceRangeHandler(e.target.value)}>
+            <select onChange={(e) => setPriceRange(e.target.value)}>
               <option value="all">All</option>
               <option value="0-100">$0 - $100</option>
               <option value="101-200">$101 - $200</option>
@@ -365,7 +361,7 @@ const Filters = () => {
         </div>
 
         <div className="grid-container">
-          {(filterArray || []).map((product, index) => (
+          {(filteredArray || []).map((product, index) => (
             <div className="grid-item" key={index}>
               <div className="card">
                 <img
@@ -376,7 +372,8 @@ const Filters = () => {
                 <div className="product-details">
                   <h3>{product.title}</h3>
                   <p>{product.description}</p>
-                  <p>Price: {product.price}</p>
+                  <p>Price: ${product.price}</p>
+                  <button className='button-alignment' onClick={() => handleAddToCart(product)}>ADD TO CART</button>
                 </div>
               </div>
             </div>

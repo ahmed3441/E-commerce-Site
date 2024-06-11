@@ -100,6 +100,7 @@ const ProductDetails = () => {
 
 
   const handleAddToCart = (product) => {
+    console.log("NEW PRODUCT", product);
     const users = localStorage.getItem('users');
   
     if (!users) {
