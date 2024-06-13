@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import signinn from '../assests/images/signinn.jpg';
 
 const LoginForm = () => {
 
@@ -27,7 +28,7 @@ const LoginForm = () => {
 
     if(user) {
       navigate('/');
-      alert('Login Successfull');
+      // alert('Login Successfull');
     }
     else {
       alert('Login Failed.Please try again');
@@ -44,27 +45,60 @@ const LoginForm = () => {
 
   return (
     <div className="login-container">
-      <div className="card">
-        <h1 className="heading-form">Login Form</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="text" id="email" value={formData.email} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" value={formData.password} onChange={handleChange} />
-          </div>
-          <div className="formGroup">
-            <button className="btnn" type="submit">Login</button>
-          </div>
-          <div className="mt-3">
-            <p>If You Are Not Registered? <Link to="/signup"><b>Register Now</b></Link></p>
-          </div>
-        </form>
+      <div className="image-container">
+        <img src={signinn} alt="Login" />
+      </div>
+      <div className="form-container">
+        <div className="form-sizing">
+          <h1 className="login-form">Login</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input type="text" id="email" value={formData.email} onChange={handleChange} />
+            </div>
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <input type="password" id="password" value={formData.password} onChange={handleChange} />
+            </div>
+            <div className="formGroup">
+              <button className="btnn" type="submit">Login</button>
+            </div>
+            <div className="mt-3">
+              <p>If You Are Not Registered? <Link to="/signup"><b>Register Now</b></Link></p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
+
+
+
+
+
+  // return (
+  //   <div className="login-container">
+  //     <div className="card">
+  //       <h1 className="heading-form">Login Form</h1>
+  //       <form onSubmit={handleSubmit}>
+  //         <div className="form-group">
+  //           <label htmlFor="email">Email</label>
+  //           <input type="text" id="email" value={formData.email} onChange={handleChange} />
+  //         </div>
+  //         <div className="form-group">
+  //           <label htmlFor="password">Password</label>
+  //           <input type="password" id="password" value={formData.password} onChange={handleChange} />
+  //         </div>
+  //         <div className="formGroup">
+  //           <button className="btnn" type="submit">Login</button>
+  //         </div>
+  //         <div className="mt-3">
+  //           <p>If You Are Not Registered? <Link to="/signup"><b>Register Now</b></Link></p>
+  //         </div>
+  //       </form>
+  //     </div>
+  //   </div>
+  // );
 };
 
 export default LoginForm;

@@ -56,7 +56,6 @@ function App() {
       <li><Link to='/products'>Products</Link></li>
       <li><Link to='/'>Services</Link></li>
 
-
       {storedUser ? (
   <>
     <li>
@@ -74,7 +73,7 @@ function App() {
         Logout
       </span>
     </li>
-    <li><span>Add User</span></li>
+    <li><span onClick={()=>{navigate('/customerform')}}>Add User</span></li>
   </>
 ) : (
   <li><Link to='/signin'>Sign-In</Link></li>

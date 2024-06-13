@@ -31,9 +31,17 @@ import ProductsDetails from './pages/ProductsDetails';
 import Signup from './pages/Signup';
 import Signin from './pages/Signin';
 import CartPage from './pages/CartPage';
+import CustomerFormPage from './pages/CustomerFormPage';
+import AllUsers from './pages/AllUsersPage';
 import PrivateRoute from './components/Auth';
+// import { useSelector } from 'react-redux';
+// import { useEffect, useState } from 'react';
 
 function App() {
+  // const [data,setData]=useState(null)
+  // const cart = useSelector((state) => state);
+  // useEffect(() => setData(data))
+  //  console.log("CART DATA ",data);
   return (
     <div>
       <Router>
@@ -44,6 +52,8 @@ function App() {
           <Route path="/products" element={<ProductsDetails />} />
           <Route element={<PrivateRoute />}>
             <Route path="/cartitems" element={<CartPage />} />
+            <Route path="/customerform" element={<CustomerFormPage />} />
+            <Route path="/allusers" element={<AllUsers />} />
           </Route>
         </Routes>
       </Router>
